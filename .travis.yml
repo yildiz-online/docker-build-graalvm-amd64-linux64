@@ -1,0 +1,17 @@
+arch:
+  - amd64
+
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - docker build -t moussavdb/build-graalvm-amd64-linux64:latest -t moussavdb/build-graalvm-amd64-linux64:build_$TRAVIS_BUILD_NUMBER .
+script:
+  - docker images moussavdb/build-graalvm-amd64-linux64
+  
+after_success:
+  - docker login -u="moussavdb" -p="test";
+    docker push moussavdb/build-graalvm-amd64-linux64:latest;
+    docker push moussavdb/build-graalvm-amd64-linux64:build_$TRAVIS_BUILD_NUMBER;
