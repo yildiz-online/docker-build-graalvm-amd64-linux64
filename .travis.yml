@@ -12,6 +12,6 @@ script:
   - docker images moussavdb/build-graalvm-amd64-linux64
   
 after_success:
-  - docker login -u="moussavdb" -p="test";
+  - docker login -u="moussavdb" -p="$DOCKER_PASSWORD";
     docker push moussavdb/build-graalvm-amd64-linux64:latest;
     docker push moussavdb/build-graalvm-amd64-linux64:build_$TRAVIS_BUILD_NUMBER;
