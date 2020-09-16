@@ -10,6 +10,8 @@ ENV JAVA_HOME=/${JAVA_FILE}
 ENV M2_HOME=/apache-maven-${MAVEN_VERSION}
 ENV PATH="${PATH}:${JAVA_HOME}/bin:${M2_HOME}/bin"
 
+RUN apt-get update && install -y -q wget unzip
+
 RUN wget -q https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAALVM_VERSION}/graalvm-ce-java11-linux-amd64-${GRAALVM_VERSION}.zip \
 && unzip graalvm-ce-java11-linux-amd64-${GRAALVM_VERSION}.zip \
 && java -version \
