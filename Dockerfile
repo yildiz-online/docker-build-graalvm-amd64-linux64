@@ -21,5 +21,14 @@ RUN wget -q https://apache.belnet.be/maven/maven-3/${MAVEN_VERSION}/binaries/apa
 && rm apache-maven-${MAVEN_VERSION}-bin.tar.gz \
 && mvn -v
 RUN apt-get purge -y -q wget
+RUN mkdir /src
+RUN mkdir /build-resources
 
 RUN gu install native-image
+
+COPY build-native.sh build-resources
+RUN chmod 777 /build-resources/build-native.sh
+
+WORKDIR /src
+
+ENTRYPOINT ../build-resources/build-native.sh
