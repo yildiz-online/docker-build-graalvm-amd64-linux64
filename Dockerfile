@@ -6,7 +6,7 @@ ENV MAVEN_VERSION=3.6.3
 
 ENV JAVA_FILE=graalvm-ce-java11-linux-amd64-dev
 #ENV JAVA_FILE=graalvm-ce-java11-${GRAALVM_VERSION}
-ENV JAVA_HOME=/${JAVA_FILE}
+ENV JAVA_HOME=/graalvm-ce-java11-20.3.0-dev
 ENV M2_HOME=/apache-maven-${MAVEN_VERSION}
 ENV PATH="${PATH}:${JAVA_HOME}/bin:${M2_HOME}/bin"
 
@@ -17,8 +17,7 @@ RUN apt-get update && apt-get install -y -q wget build-essential libz-dev zlib1g
 #&& rm graalvm-ce-java11-linux-amd64-${GRAALVM_VERSION}.tar.gz
 RUN wget -q https://github.com/graalvm/graalvm-ce-dev-builds/releases/download/20.3.0-dev-20201006_0329/graalvm-ce-java11-linux-amd64-dev.tar.gz
 RUN tar -xzf graalvm-ce-java11-linux-amd64-dev.tar.gz
-#RUN rm graalvm-ce-java11-linux-amd64-dev.tar.gz
-RUN ls -l && cd /graalvm-ce-java11-linux-amd64-dev && ls -l
+RUN rm graalvm-ce-java11-linux-amd64-dev.tar.gz
 RUN java -version
 
 RUN wget -q https://apache.belnet.be/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
