@@ -17,8 +17,8 @@ RUN apt-get update && apt-get install -y -q wget build-essential libz-dev zlib1g
 #&& rm graalvm-ce-java11-linux-amd64-${GRAALVM_VERSION}.tar.gz
 RUN wget -q https://github.com/graalvm/graalvm-ce-dev-builds/releases/download/20.3.0-dev-20201006_0329/graalvm-ce-java11-linux-amd64-dev.tar.gz
 RUN tar -xzf graalvm-ce-java11-linux-amd64-dev.tar.gz
-RUN rm graalvm-ce-java11-linux-amd64-dev.tar.gz
-RUN cd /graalvm-ce-java11-linux-amd64-dev && ls -l
+#RUN rm graalvm-ce-java11-linux-amd64-dev.tar.gz
+RUN ls -l cd /graalvm-ce-java11-linux-amd64-dev && ls -l
 RUN java -version
 
 RUN wget -q https://apache.belnet.be/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
