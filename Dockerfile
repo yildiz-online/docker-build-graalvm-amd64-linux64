@@ -1,5 +1,4 @@
 FROM ubuntu:20.04
-https://github.com/graalvm/graalvm-ce-dev-builds/releases/download/20.3.0-dev-20201006_0329/graalvm-ce-java11-linux-amd64-dev.tar.gz
 LABEL maintainer="Grégory Van den Borre vandenborre.gregory@hotmail.fr"
 
 ENV GRAALVM_VERSION=20.2.0
