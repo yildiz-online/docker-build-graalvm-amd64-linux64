@@ -1,10 +1,10 @@
 FROM ubuntu:focal
 LABEL maintainer="Grégory Van den Borre vandenborre.gregory@hotmail.fr"
 
-ENV GRAALVM_VERSION=20.3.0
-ENV MAVEN_VERSION=3.6.3
+ENV GRAALVM_VERSION=21.1.0
+ENV MAVEN_VERSION=3.8.1
 
-ENV JAVA_HOME=/graalvm-ce-java11-20.3.0
+ENV JAVA_HOME=/graalvm-ce-java11-21.1.0
 ENV M2_HOME=/apache-maven-${MAVEN_VERSION}
 ENV PATH="${PATH}:${JAVA_HOME}/bin:${M2_HOME}/bin"
 
